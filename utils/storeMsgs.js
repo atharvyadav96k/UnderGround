@@ -6,7 +6,7 @@ exports.storeMsg = async (id, data) => {
         data: data
     };
     await client.rpush("msg", JSON.stringify(value));
-    if (await client.llen("msg") > 10) {
+    if (await client.llen("msg") > 50) {
         await client.lpop("msg");
     }
 };
